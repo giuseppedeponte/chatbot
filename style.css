@@ -1,0 +1,180 @@
+html {
+  font-size: 120%;
+  line-height: 1.5;
+  color: #222;
+  text-rendering: optimizeLegibility; }
+
+body {
+  font-size: 20px;
+  line-height: 1.5; }
+
+section#chatbot {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0 30px; }
+  section#chatbot article#conversation {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 15px 0; }
+    section#chatbot article#conversation p,
+    section#chatbot article#conversation figure {
+      line-height: 30px;
+      display: inline-block;
+      padding: 0 15px;
+      margin: 0 15px;
+      margin-top: 15px;
+      border-radius: 0.30rem;
+      transition: visibility .5s ease-out; }
+      section#chatbot article#conversation p a,
+      section#chatbot article#conversation p a:visited,
+      section#chatbot article#conversation figure a,
+      section#chatbot article#conversation figure a:visited {
+        color: #03a9f4;
+        text-decoration: none;
+        outline: none;
+        border-bottom: 1px solid #03a9f4; }
+      section#chatbot article#conversation p a:hover,
+      section#chatbot article#conversation p a:focus,
+      section#chatbot article#conversation p a:active,
+      section#chatbot article#conversation figure a:hover,
+      section#chatbot article#conversation figure a:focus,
+      section#chatbot article#conversation figure a:active {
+        opacity: .5; }
+      section#chatbot article#conversation p img,
+      section#chatbot article#conversation figure img {
+        display: block;
+        max-width: 270px;
+        border-radius: 0.30rem; }
+      section#chatbot article#conversation p figcaption,
+      section#chatbot article#conversation figure figcaption {
+        text-indent: 0.5rem;
+        opacity: .75; }
+    section#chatbot article#conversation figure {
+      margin: 15px 0; }
+    section#chatbot article#conversation .dr27 {
+      align-self: flex-start; }
+    section#chatbot article#conversation .user {
+      align-self: flex-end;
+      color: orangered; }
+      section#chatbot article#conversation .user figcaption {
+        text-align: right; }
+    section#chatbot article#conversation p:last-of-type,
+    section#chatbot article#conversation figure:last-of-type {
+      animation: 1s fade-in; }
+  section#chatbot .avatar {
+    display: flex; }
+    section#chatbot .avatar img,
+    section#chatbot .avatar figcaption {
+      display: inline-flex;
+      align-self: center;
+      justify-content: space-between;
+      align-items: center; }
+    section#chatbot .avatar img {
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      margin: 0 7.5px; }
+    section#chatbot .avatar figcaption {
+      padding: 0 15px;
+      border-radius: 0.60rem;
+      width: 60px;
+      height: 30px; }
+    section#chatbot .avatar figcaption span {
+      background-color: currentcolor;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%; }
+    section#chatbot .avatar figcaption.think span:nth-of-type(1) {
+      animation: 1.5s infinite think1; }
+    section#chatbot .avatar figcaption.think span:nth-of-type(2) {
+      animation: 1.5s infinite think2; }
+    section#chatbot .avatar figcaption.think span:nth-of-type(3) {
+      animation: 1.5s infinite think3; }
+  section#chatbot figure#dr27 {
+    justify-content: flex-start; }
+    section#chatbot figure#dr27 figcaption {
+      background-color: #f0f0f0;
+      color: #414141; }
+  section#chatbot figure#user {
+    justify-content: flex-end; }
+    section#chatbot figure#user img {
+      display: block;
+      background-color: orangered;
+      color: #fafafa;
+      border: none; }
+    section#chatbot figure#user figcaption {
+      background-color: orangered;
+      color: #fafafa; }
+  section#chatbot ul#input {
+    margin: 0 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    padding-bottom: 15px; }
+    section#chatbot ul#input li {
+      line-height: 30px;
+      padding-bottom: 15px;
+      width: 100%;
+      text-align: center; }
+      section#chatbot ul#input li button,
+      section#chatbot ul#input li form {
+        font-family: "Merryweather", Georgia, sans-serif;
+        font-size: 20px;
+        line-height: 30px; }
+      section#chatbot ul#input li button {
+        padding: 0 15px;
+        background-color: orangered;
+        border-radius: 0.30rem;
+        color: #fafafa; }
+      section#chatbot ul#input li button:hover {
+        opacity: .5; }
+      section#chatbot ul#input li form label {
+        display: flex;
+        justify-content: center; }
+        section#chatbot ul#input li form label input[type="text"] {
+          width: 100%;
+          font-family: "Merryweather", Georgia, sans-serif;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid orangered; }
+        section#chatbot ul#input li form label button {
+          border-radius: 0 0.30rem 0.30rem 0; }
+
+@keyframes think3 {
+  0%, 100%, 50% {
+    transform: scale(1); }
+  75% {
+    transform: scale(1.5); } }
+@keyframes think2 {
+  0%, 100%, 25% {
+    transform: scale(1); }
+  50%, 75% {
+    transform: scale(1.5); } }
+@keyframes think1 {
+  0%, 100% {
+    transform: scale(1); }
+  50%, 75% {
+    transform: scale(1.5); } }
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+.grid {
+  display: block;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  top: 0px;
+  height: 100%;
+  background: linear-gradient(rgba(0, 119, 179, 0.2) 1px, transparent 1px) left bottom/30px 30px; }
+
+/*# sourceMappingURL=style.scss.map */
+
+/*# sourceMappingURL=style.css.map */

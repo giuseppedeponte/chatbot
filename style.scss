@@ -1,0 +1,261 @@
+// SETTINGS
+// mixins
+@mixin vertical-margin($number){
+  margin: #{$number * $leading} 0;
+}
+@mixin font-size($number){
+  font-size: #{$number * $scale * $body-font-size}
+}
+@mixin leading($number){
+  line-height: #{$number * $leading}
+}
+@mixin width($number){
+  width: #{$leading * $number};
+}
+// font families
+$body-font-family : 'Merryweather', Georgia, sans-serif;
+// font sizes
+$body-font-size: 20px;
+$line-height: 1.5;
+$scale: 3/2;
+$leading: $body-font-size * $line-height;
+
+// colors
+$user-bgcolor: orangered;
+$user-color: #fafafa;
+$bot-bgcolor: #f0f0f0;
+$bot-color: #414141;
+
+// ELEMENTS
+html {
+  font-size: 120%;
+  line-height: $line-height;
+  color: #222;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-size: $body-font-size;
+  line-height: $line-height;
+}
+
+main {
+}
+
+section#chatbot {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0 $leading;
+
+  article#conversation {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: .5*$leading 0;
+    p,
+    figure {
+      line-height: $leading;
+      display: inline-block;
+      padding: 0 $leading*.5;
+      margin: 0 .5*$leading;
+      margin-top: .5*$leading;
+      border-radius: 0.30rem;
+      transition: visibility .5s ease-out;
+      a,
+      a:visited {
+        color: #03a9f4;
+        text-decoration: none;
+        outline: none;
+        border-bottom: 1px solid #03a9f4;
+      }
+      a:hover,
+      a:focus,
+      a:active {
+        opacity: .5;
+      }
+      img {
+        display: block;
+        max-width: 9*$leading;
+        border-radius: 0.30rem;
+      }
+      figcaption {
+        text-indent: 0.5rem;
+        opacity: .75;
+      }
+    }
+    figure {
+      margin: .5*$leading 0;
+    }
+    .dr27 {
+      align-self: flex-start;
+    }
+    .user {
+      align-self: flex-end;
+      color: $user-bgcolor;
+      figcaption {
+        text-align: right;
+      }
+    }
+    p:last-of-type,
+    figure:last-of-type {
+      animation: 1s fade-in;
+    }
+  }
+
+  .avatar {
+    display: flex;
+    img,
+    figcaption {
+      display: inline-flex;
+      align-self: center;
+      justify-content: space-between;
+      align-items: center;
+    }
+    img {
+      width: 2*$leading;
+      height: 2*$leading;
+      border-radius: 100%;
+      margin: 0 .25*$leading;
+    }
+    figcaption {
+      padding: 0 .5*$leading;
+      border-radius: 0.60rem;
+      width: 2*$leading;
+      height: $leading;
+    }
+    figcaption span {
+      background-color: currentcolor;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    figcaption.think {
+       span:nth-of-type(1) {
+        animation: 1.5s infinite think1;
+      }
+       span:nth-of-type(2) {
+        animation: 1.5s infinite think2;
+      }
+       span:nth-of-type(3) {
+        animation: 1.5s infinite think3;
+      }
+    }
+  }
+
+  figure#dr27 {
+    justify-content: flex-start;
+    figcaption {
+      background-color: $bot-bgcolor;
+      color: $bot-color;
+    }
+  }
+
+  figure#user {
+    justify-content: flex-end;
+    img {
+      display: block;
+      background-color: $user-bgcolor;
+      color: $user-color;
+      border: none;
+    }
+    figcaption {
+      background-color: $user-bgcolor;
+      color: $user-color;
+    }
+  }
+
+  ul#input {
+    margin: 0 $leading;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    padding-bottom: .5*$leading;
+
+    li {
+      line-height: $leading;
+      padding-bottom: .5*$leading;
+      width: 100%;
+      text-align: center;
+      button,
+      form {
+        font-family: $body-font-family;
+        font-size: $body-font-size;
+        line-height: $leading;
+      }
+      button {
+        padding: 0 .5*$leading;
+        background-color: $user-bgcolor;
+        border-radius: 0.30rem;
+        color: $user-color;
+      }
+      button:hover {
+        opacity: .5;
+      }
+      form label {
+        display: flex;
+        justify-content: center;
+        input[type="text"] {
+          width: 100%;
+          font-family: $body-font-family;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid $user-bgcolor;
+        }
+        button {
+          border-radius: 0 0.30rem 0.30rem 0;
+        }
+      }
+    }
+  }
+}
+
+// ANIMATIONS
+@keyframes think3 {
+  0%, 100%, 50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.5);
+  }
+}
+@keyframes think2 {
+  0%, 100%, 25% {
+    transform: scale(1);
+  }
+  50%, 75% {
+    transform: scale(1.5);
+  }
+}
+@keyframes think1 {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50%, 75% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.grid {
+  display: block;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  top: 0px;
+  height: 100%;
+  background: linear-gradient(rgba(0, 119, 179, 0.2) 1px, transparent 1px) left bottom / 30px 30px;
+}
+/*# sourceMappingURL=style.scss.map */
