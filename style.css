@@ -6,13 +6,17 @@ html {
 
 body {
   font-size: 20px;
-  line-height: 1.5; }
+  line-height: 1.5;
+  background-color: #fdfdfd; }
 
 section#chatbot {
   position: fixed;
   left: 0;
   bottom: 0;
-  padding: 0 30px; }
+  padding: 0 30px;
+  width: 100%;
+  max-width: 600px;
+  margin: 15px auto; }
   section#chatbot article#conversation {
     display: flex;
     flex-flow: column nowrap;
@@ -21,7 +25,7 @@ section#chatbot {
     section#chatbot article#conversation figure {
       line-height: 30px;
       display: inline-block;
-      padding: 0 15px;
+      max-width: 570px;
       margin: 0 15px;
       margin-top: 15px;
       border-radius: 0.30rem;
@@ -44,24 +48,23 @@ section#chatbot {
       section#chatbot article#conversation p img,
       section#chatbot article#conversation figure img {
         display: block;
-        max-width: 270px;
+        max-width: 150px;
         border-radius: 0.30rem; }
       section#chatbot article#conversation p figcaption,
       section#chatbot article#conversation figure figcaption {
-        text-indent: 0.5rem;
-        opacity: .75; }
+        text-align: right;
+        font-size: 0.66667rem;
+        opacity: .5;
+        padding: 0 .5rem; }
     section#chatbot article#conversation figure {
-      margin: 15px 0; }
+      margin-top: 30px; }
     section#chatbot article#conversation .dr27 {
       align-self: flex-start; }
     section#chatbot article#conversation .user {
       align-self: flex-end;
-      color: orangered; }
+      color: crimson; }
       section#chatbot article#conversation .user figcaption {
-        text-align: right; }
-    section#chatbot article#conversation p:last-of-type,
-    section#chatbot article#conversation figure:last-of-type {
-      animation: 1s fade-in; }
+        text-align: left; }
   section#chatbot .avatar {
     display: flex; }
     section#chatbot .avatar img,
@@ -91,27 +94,32 @@ section#chatbot {
       animation: 1.5s infinite think2; }
     section#chatbot .avatar figcaption.think span:nth-of-type(3) {
       animation: 1.5s infinite think3; }
-  section#chatbot figure#dr27 {
+  section#chatbot .avatar#dr27 {
     justify-content: flex-start; }
-    section#chatbot figure#dr27 figcaption {
+    section#chatbot .avatar#dr27 figcaption {
+      display: inline-flex;
       background-color: #f0f0f0;
       color: #414141; }
-  section#chatbot figure#user {
+    section#chatbot .avatar#dr27 figcaption.hide {
+      display: none; }
+  section#chatbot .avatar#user {
     justify-content: flex-end; }
-    section#chatbot figure#user img {
+    section#chatbot .avatar#user img {
       display: block;
-      background-color: orangered;
+      background-color: crimson;
       color: #fafafa;
       border: none; }
-    section#chatbot figure#user figcaption {
-      background-color: orangered;
+    section#chatbot .avatar#user figcaption {
+      display: inline-flex;
+      background-color: crimson;
       color: #fafafa; }
+    section#chatbot .avatar#user figcaption.hide {
+      display: none; }
   section#chatbot ul#input {
-    margin: 0 30px;
     display: flex;
+    margin: 0 30px;
     justify-content: space-around;
-    flex-flow: row wrap;
-    padding-bottom: 15px; }
+    flex-flow: row wrap; }
     section#chatbot ul#input li {
       line-height: 30px;
       padding-bottom: 15px;
@@ -124,7 +132,7 @@ section#chatbot {
         line-height: 30px; }
       section#chatbot ul#input li button {
         padding: 0 15px;
-        background-color: orangered;
+        background-color: crimson;
         border-radius: 0.30rem;
         color: #fafafa; }
       section#chatbot ul#input li button:hover {
@@ -137,9 +145,11 @@ section#chatbot {
           font-family: "Merryweather", Georgia, sans-serif;
           border: none;
           outline: none;
-          border-bottom: 1px solid orangered; }
+          border-bottom: 1px solid crimson; }
         section#chatbot ul#input li form label button {
           border-radius: 0 0.30rem 0.30rem 0; }
+  section#chatbot ul#input.hide {
+    display: none; }
 
 @keyframes think3 {
   0%, 100%, 50% {
@@ -163,6 +173,7 @@ section#chatbot {
     opacity: 1; } }
 .grid {
   display: block;
+  display: none;
   position: fixed;
   left: 0px;
   right: 0px;

@@ -21,7 +21,7 @@ $scale: 3/2;
 $leading: $body-font-size * $line-height;
 
 // colors
-$user-bgcolor: orangered;
+$user-bgcolor: crimson;
 $user-color: #fafafa;
 $bot-bgcolor: #f0f0f0;
 $bot-color: #414141;
@@ -36,6 +36,7 @@ html {
 body {
   font-size: $body-font-size;
   line-height: $line-height;
+  background-color: #fdfdfd;
 }
 
 main {
@@ -46,16 +47,20 @@ section#chatbot {
   left: 0;
   bottom: 0;
   padding: 0 $leading;
+  width: 100%;
+  max-width: 20*$leading;
+  margin: .5*$leading auto;
 
   article#conversation {
     display: flex;
     flex-flow: column nowrap;
     padding: .5*$leading 0;
+
     p,
     figure {
       line-height: $leading;
       display: inline-block;
-      padding: 0 $leading*.5;
+      max-width: 19*$leading;
       margin: 0 .5*$leading;
       margin-top: .5*$leading;
       border-radius: 0.30rem;
@@ -74,16 +79,18 @@ section#chatbot {
       }
       img {
         display: block;
-        max-width: 9*$leading;
+        max-width: 5*$leading;
         border-radius: 0.30rem;
       }
       figcaption {
-        text-indent: 0.5rem;
-        opacity: .75;
+        text-align: right;
+        font-size: #{1/$scale + 'rem'};
+        opacity: .5;
+        padding: 0 .5rem;
       }
     }
     figure {
-      margin: .5*$leading 0;
+      margin-top: $leading;
     }
     .dr27 {
       align-self: flex-start;
@@ -92,12 +99,8 @@ section#chatbot {
       align-self: flex-end;
       color: $user-bgcolor;
       figcaption {
-        text-align: right;
+        text-align: left;
       }
-    }
-    p:last-of-type,
-    figure:last-of-type {
-      animation: 1s fade-in;
     }
   }
 
@@ -128,7 +131,6 @@ section#chatbot {
       height: 5px;
       border-radius: 50%;
     }
-
     figcaption.think {
        span:nth-of-type(1) {
         animation: 1.5s infinite think1;
@@ -142,15 +144,19 @@ section#chatbot {
     }
   }
 
-  figure#dr27 {
+  .avatar#dr27 {
     justify-content: flex-start;
     figcaption {
+      display: inline-flex;
       background-color: $bot-bgcolor;
       color: $bot-color;
     }
+    figcaption.hide {
+      display: none;
+    }
   }
 
-  figure#user {
+  .avatar#user {
     justify-content: flex-end;
     img {
       display: block;
@@ -159,18 +165,20 @@ section#chatbot {
       border: none;
     }
     figcaption {
+      display: inline-flex;
       background-color: $user-bgcolor;
       color: $user-color;
+    }
+    figcaption.hide {
+      display: none;
     }
   }
 
   ul#input {
-    margin: 0 $leading;
     display: flex;
+    margin: 0 $leading;
     justify-content: space-around;
     flex-flow: row wrap;
-    padding-bottom: .5*$leading;
-
     li {
       line-height: $leading;
       padding-bottom: .5*$leading;
@@ -206,6 +214,9 @@ section#chatbot {
         }
       }
     }
+  }
+  ul#input.hide {
+    display: none;
   }
 }
 
@@ -246,6 +257,7 @@ section#chatbot {
 
 .grid {
   display: block;
+  display: none;
   position: fixed;
   left: 0px;
   right: 0px;
