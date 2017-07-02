@@ -1,14 +1,15 @@
-{
+// Constant STORYLINE as JS object
+// Future version will use it as JSON file
+
+STORYLINE = {
   "fr": {
     "start": "i0",
     "end": "o5",
-    "i": [
-      {
+    "i": [{
         "id": "i0",
         "type": "question",
         "text": "Bonjour, mon ami(e) !",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Bonjour",
@@ -42,8 +43,7 @@
         "id": "i3",
         "type": "question",
         "text": "Vous êtes un homme ou une femme ?",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "text": "Je suis un homme",
             "store": "sex",
@@ -69,19 +69,28 @@
       {
         "id": "i4",
         "type": "partial",
-        "var": "sex",
-        "text": {
-          "m": "Très bien, bienvenu !",
-          "f": "Très bien, bienvenue !",
-          "x": "Je comprends..."
-        }
+        "text": [{
+            "var": "sex",
+            "value": "m",
+            "text": "Très bien, bienvenu !"
+          },
+          {
+            "var": "sex",
+            "value": "f",
+            "text": "Très bien, bienvenue !"
+          },
+          {
+            "var": "sex",
+            "value": "x",
+            "text": "Pas de problèmes !"
+          }
+        ]
       },
       {
         "id": "i5",
         "type": "question",
         "text": "Comment allez-vous aujourd'hui ?",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "text": "Bien, et vous ?",
             "store": "isHappy",
@@ -100,18 +109,23 @@
       {
         "id": "i6",
         "type": "partial",
-        "var": "isHappy",
-        "text": {
-          "true" : "Très bien, merci.",
-          "false": "Mauvaise journée ? Désolé de l'entendre"
-        }
+        "text": [{
+            "var": "isHappy",
+            "value": true,
+            "text": "Très bien, merci"
+          },
+          {
+            "var": "isHappy",
+            "value": false,
+            "text": "Mauvaise journée ? Désolé de l'entendre"
+          }
+        ]
       },
       {
         "id": "i7",
         "type": "question",
         "text": "Puis-je vous demander votre nom ?",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": "name",
             "value": false,
@@ -130,11 +144,17 @@
       {
         "id": "i8",
         "type": "partial",
-        "var": "name",
-        "text": {
-          "true": "Enchanté, #nom",
-          "false": "Ok. Je comprends."
-        }
+        "text": [{
+            "var": "name",
+            "value": true,
+            "text": "Enchanté, #nom"
+          },
+          {
+            "var": "name",
+            "value": false,
+            "text": "Ok. Je comprends."
+          }
+        ]
       },
       {
         "id": "i9",
@@ -155,45 +175,62 @@
         "id": "i12",
         "type": "question",
         "text": "ou d'autre chose ?",
-        "a": [
-          {
+        "a": [{
             "type": "partial",
+            "text": [{
+                "var": "bio",
+                "value": true,
+                "text": "Parlez-moi de vous"
+              },
+              {
+                "var": "bio",
+                "value": false,
+                "text": "Reparlez-moi de vous"
+              }
+            ],
             "store": "bio",
             "value": true,
-            "var": "bio",
-            "text": {
-              "false": "Parlez-moi de vous",
-              "true": "Reparlez-moi de vous"
-            },
             "next": "b0"
           },
           {
             "type": "partial",
+            "var": "resume",
+            "text": [{
+                "var": "resume",
+                "value": false,
+                "text": "Dîtes-moi ce que vous faîtes"
+              },
+              {
+                "var": "resume",
+                "value": true,
+                "text": "Redîtes-moi ce que vous faîtes"
+              }
+            ],
             "store": "resume",
             "value": true,
-            "var": "resume",
-            "text": {
-              "false": "Dîtes-moi ce que vous faîtes",
-              "true": "Redîtes-moi ce que vous faîtes"
-            },
             "next": "r0"
           },
           {
             "type": "partial",
+            "text": [{
+                "var": "game",
+                "value": false,
+                "text": "Je m'ennuie !"
+              },
+              {
+                "var": "game",
+                "value": true,
+                "text": "Je m'ennuie encore !"
+              }
+            ],
             "store": "game",
             "value": true,
-            "var": "game",
-            "text": {
-              "false": "Je m'ennuie !",
-              "true": "Je m'ennuie encore !"
-            },
             "next": "g0"
           }
         ]
       }
     ],
-    "b": [
-      {
+    "b": [{
         "id": "b0",
         "type": "neutral",
         "text": "Avec plaisir..."
@@ -206,9 +243,8 @@
       {
         "id": "b2",
         "type": "question",
-        "text": "(mais en dehors des chats on m'appelle Giuseppe De Ponte)",
-        "a": [
-          {
+        "text": "(mais en dehors de la chat on m'appelle Giuseppe De Ponte)",
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Vous êtes espagnol ?",
@@ -217,12 +253,22 @@
           {
             "type": "partial",
             "store": false,
-            "var": "sex",
-            "text": {
-              "m": "Enchanté, Giuseppe",
-              "f": "Enchantée, Giuseppe",
-              "x": "Enchanté(e), Giuseppe"
-            },
+            "text": [{
+                "var": "sex",
+                "value": "m",
+                "text": "Enchanté, Giuseppe"
+              },
+              {
+                "var": "sex",
+                "value": "f",
+                "text": "Enchantée, Giuseppe"
+              },
+              {
+                "var": "sex",
+                "value": "x",
+                "text": "Enchanté(e), Giuseppe"
+              }
+            ],
             "next": "b3"
           },
           {
@@ -262,8 +308,7 @@
         "id": "b8",
         "type": "question",
         "text": "(qui est la raison pour laquelle je vis en France)",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Et comment êtes-vous ?",
@@ -271,13 +316,20 @@
           },
           {
             "type": "partial",
+            "var": "resume",
+            "text": [{
+                "var": "resume",
+                "value": false,
+                "text": "Dîtes-moi ce que vous faîtes"
+              },
+              {
+                "var": "resume",
+                "value": true,
+                "text": "Redîtes-moi ce que vous faîtes"
+              }
+            ],
             "store": "resume",
             "value": true,
-            "var": "resume",
-            "text": {
-              "false": "Et que faîtes-vous ?",
-              "true": "Redîtes-moi ce que vous faîtes"
-            },
             "next": "r0"
           }
         ]
@@ -285,25 +337,20 @@
       {
         "id": "b9",
         "type": "neutral",
-        "text": "J'ai beaucoup d'imagination"
+        "text": "J'ai beaucoup d'imagination et une enorme curiosité"
       },
       {
         "id": "b10",
         "type": "neutral",
-        "text": "et une enorme curiosité"
+        "text": "Je suis plus à l'aise à l'écrit qu'à l'oral"
       },
       {
         "id": "b11",
         "type": "neutral",
-        "text": "Je suis plus à l'aise à l'écrit qu'à l'oral"
+        "text": "(mais j'y travaille... \u263a)"
       },
       {
         "id": "b12",
-        "type": "neutral",
-        "text": "(mais j'y travaille...)"
-      },
-      {
-        "id": "b13",
         "type": "neutral",
         "text": "Je dessine presque tous les jours"
       },
@@ -311,8 +358,7 @@
         "id": "b13",
         "type": "question",
         "text": "Voulez-vous voir quelques-uns de mes dessin ?",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Pourquoi pas ?",
@@ -353,7 +399,7 @@
       {
         "id": "b17",
         "type": "neutral",
-        "text": "Vous pourrez voir mes dessins sur ma page tumblr"
+        "text": "Vous pourrez voir quelques dessins sur ma page tumblr"
       },
       {
         "id": "b18",
@@ -393,34 +439,45 @@
         "id": "b24",
         "type": "question",
         "text": "Voilà, en gros, mon profil",
-        "a": [
-          {
+        "a": [{
             "type": "partial",
+            "var": "resume",
+            "text": [{
+                "var": "resume",
+                "value": false,
+                "text": "Dîtes-moi ce que vous faîtes"
+              },
+              {
+                "var": "resume",
+                "value": true,
+                "text": "Redîtes-moi ce que vous faîtes"
+              }
+            ],
             "store": "resume",
             "value": true,
-            "var": "resume",
-            "text": {
-              "false": "Et que faîtes-vous ?",
-              "true": "Redîtes-moi ce que vous faîtes"
-            },
             "next": "r0"
           },
           {
             "type": "partial",
+            "text": [{
+                "var": "game",
+                "value": false,
+                "text": "Je m'ennuie !"
+              },
+              {
+                "var": "game",
+                "value": true,
+                "text": "Je m'ennuie encore !"
+              }
+            ],
             "store": "game",
             "value": true,
-            "var": "game",
-            "text": {
-              "false": "Je m'ennuie !",
-              "true": "Je m'ennuie encore !"
-            },
             "next": "g0"
           }
         ]
       }
     ],
-    "r": [
-      {
+    "r": [{
         "id": "r0",
         "type": "neutral",
         "text": "Voyons... Voulez-vous connaître mon parcours ?"
@@ -429,8 +486,7 @@
         "id": "r1",
         "type": "question",
         "text": "ou savoir plutôt ce que je fais aujourd'hui ?",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Parlez-moi de votre parcours",
@@ -462,7 +518,7 @@
       {
         "id": "r5",
         "type": "neutral",
-        "text": "(c'est JS qui me permet de vous parler maintenant)"
+        "text": "(c'est JS qui me permet de nous parler en ce moment)"
       },
       {
         "id": "r6",
@@ -488,8 +544,7 @@
         "id": "r10",
         "type": "question",
         "text": "dans toutes ses applications",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Pourquoi avoir choisi ce domaine ?",
@@ -562,8 +617,7 @@
         "id": "r22",
         "type": "question",
         "text": "et si central dans notre société",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Qu'allez-vous pouvoir faire ?",
@@ -574,237 +628,263 @@
             "store": false,
             "text": "Parlez-moi de votre parcours",
             "next": "r37"
-          },
-          {
-            "id": "r23",
-            "type": "neutral",
-            "text": "JS est le langage, avec HTML et CSS, utilisé par tous les navigateurs web"
-          },
-          {
-            "id": "r24",
-            "type": "neutral",
-            "text": "Il est central dans tout travail de développement front-end"
-          },
-          {
-            "id": "r25",
-            "type": "neutral",
-            "text": "tant pour le web que pour le mobile"
-          },
-          {
-            "id": "r26",
-            "type": "neutral",
-            "text": "(tout seul ou avec l'aide de ses nombreuses librairies)"
-          },
-          {
-            "id": "r27",
-            "type": "neutral",
-            "text": "(comme JQuery, Angular, Bootstrap, Foundation, etc...)"
-          },
-          {
-            "id": "r28",
-            "type": "neutral",
-            "text": "JS est aussi de plus en plus utilisé dans le développement back-end"
-          },
-          {
-            "id": "r29",
-            "type": "neutral",
-            "text": "grâce à des techno comme Node, Express, MongoDB, Meteor et Ajax"
-          },
-          {
-            "id": "r30",
-            "type": "neutral",
-            "text": "Tous ces outils sont ceux dont j'ai pu faire l'expérience tout au long de mon parcours"
-          },
-          {
-            "id": "r31",
-            "type": "neutral",
-            "text": "Et que je maîtriserai entièrement à la fin de ma formation"
-          },
-          {
-            "id": "r32",
-            "type": "neutral",
-            "text": "Pour plus de détails sur le programme de ma formation vous pouvez consulter ce document"
-          },
-          {
-            "id": "r33",
-            "type": "link",
-            "text": "Formation DIWJS",
-            "url": "doc/fiche.pdf"
-          },
-          {
-            "id": "r34",
-            "type": "neutral",
-            "text": "Vous pouvez aussi voir certaines de mes réalisations sur mon compte github"
-          },
-          {
-            "id": "r35",
-            "type": "link",
-            "text": "@github.com/giuseppedeponte",
-            "url": "https://github.com/giuseppedeponte"
-          },
-          {
-            "id": "r36",
-            "type": "question",
-            "text": "(vous y trouverez aussi le code source de cette page)",
-            "a": [
-              {
-                "type": "partial",
-                "store": "bio",
-                "value": true,
+          }
+        ]
+      },
+      {
+        "id": "r23",
+        "type": "neutral",
+        "text": "JS est le langage, avec HTML et CSS, utilisé par tous les navigateurs web"
+      },
+      {
+        "id": "r24",
+        "type": "neutral",
+        "text": "Il est central dans tout travail de développement front-end"
+      },
+      {
+        "id": "r25",
+        "type": "neutral",
+        "text": "tant pour le web que pour le mobile"
+      },
+      {
+        "id": "r26",
+        "type": "neutral",
+        "text": "(tout seul ou avec l'aide de ses nombreuses librairies)"
+      },
+      {
+        "id": "r27",
+        "type": "neutral",
+        "text": "(comme JQuery, Angular, Bootstrap, Foundation, etc...)"
+      },
+      {
+        "id": "r28",
+        "type": "neutral",
+        "text": "JS est aussi de plus en plus utilisé dans le développement back-end"
+      },
+      {
+        "id": "r29",
+        "type": "neutral",
+        "text": "grâce à des techno comme Node, Express, MongoDB, Meteor et Ajax"
+      },
+      {
+        "id": "r30",
+        "type": "neutral",
+        "text": "Tous ces outils sont ceux dont j'ai pu faire l'expérience tout au long de mon parcours"
+      },
+      {
+        "id": "r31",
+        "type": "neutral",
+        "text": "Et que je maîtriserai entièrement à la fin de ma formation"
+      },
+      {
+        "id": "r32",
+        "type": "neutral",
+        "text": "Pour plus de détails sur le programme de ma formation vous pouvez consulter ce document"
+      },
+      {
+        "id": "r33",
+        "type": "link",
+        "text": "Formation DIWJS",
+        "url": "doc/DIWFULLS.pdf"
+      },
+      {
+        "id": "r34",
+        "type": "neutral",
+        "text": "Vous pouvez aussi voir certaines de mes réalisations sur mon compte github"
+      },
+      {
+        "id": "r35",
+        "type": "link",
+        "text": "@github.com/giuseppedeponte",
+        "url": "https://github.com/giuseppedeponte"
+      },
+      {
+        "id": "r36",
+        "type": "question",
+        "text": "(vous y trouverez aussi le code source de cette page)",
+        "a": [{
+            "type": "partial",
+            "text": [{
                 "var": "bio",
-                "text": {
-                  "false": "Parlez-moi de vous",
-                  "true": "Reparlez-moi de vous"
-                },
-                "next": "b0"
+                "value": true,
+                "text": "Parlez-moi de vous"
               },
               {
-                "type": "partial",
-                "store": false,
-                "text": "Parlez-moi de votre parcours",
-                "next": "r37"
-              },
-              {
-                "type": "partial",
-                "store": "game",
-                "value": true,
-                "var": "game",
-                "text": {
-                  "false": "Je m'ennuie !",
-                  "true": "Je m'ennuie encore !"
-                },
-                "next": "g0"
-              }
-            ]
-          },
-          {
-            "id": "r37",
-            "type": "neutral",
-            "text": "Je vais tenter de résumer..."
-          },
-          {
-            "id": "r38",
-            "type": "neutral",
-            "text": "J'ai obtenu un bac scientifique en 2003"
-          },
-          {
-            "id": "r39",
-            "type": "neutral",
-            "text": "Puis validé une licence en études cinématographiques"
-          },
-          {
-            "id": "r40",
-            "type": "neutral",
-            "text": "en 2007"
-          },
-          {
-            "id": "r41",
-            "type": "neutral",
-            "text": "suivie en 2008 d'un master en écritures pour le cinéma"
-          },
-          {
-            "id": "r42",
-            "type": "neutral",
-            "text": "De 2008 à 2010 j'ai collaboré avec l'association Affabula Readings"
-          },
-          {
-            "id": "r43",
-            "type": "neutral",
-            "text": "en tant que story-editor"
-          },
-          {
-            "id": "r44",
-            "type": "neutral",
-            "text": "De 2010 à 2017"
-          },
-          {
-            "id": "r45",
-            "type": "neutral",
-            "text": "j'ai été employé en tant que conseiller de vente"
-          },
-          {
-            "id": "r46",
-            "type": "neutral",
-            "text": "dans la boutique Le Géant des Beaux-Arts à Paris"
-          },
-          {
-            "id": "r47",
-            "type": "neutral",
-            "text": "Depuis 2015 j'ai développé et je maintien le site web de l'association Nicarali"
-          },
-          {
-            "id": "r48",
-            "type": "link",
-            "text": "nicarali.com",
-            "url": "http://www.nicarali.com"
-          },
-          {
-            "id": "r50",
-            "type": "neutral",
-            "text": "Voilà, rapidement, mon parcours"
-          },
-          {
-            "id": "r51",
-            "type": "neutral",
-            "text": "Si vous voulez vous pouvez consulter mon CV"
-          },
-          {
-            "id": "r52",
-            "type": "link",
-            "text": "Curriculum Vitae",
-            "url": "docs/cv.pdf"
-          },
-          {
-            "id": "r53",
-            "type": "neutral",
-            "text": "ou me suivre sur LinkedIn"
-          },
-          {
-            "id": "r54",
-            "type": "link",
-            "text": "@linkedin/giuseppedeponte",
-            "url": "https://www.linkedin.com/in/giuseppedeponte"
-          },
-          {
-            "id": "r55",
-            "type": "question",
-            "text": "Et maintenat, de quoi aimeriez-vous parler ?",
-            "a": [
-              {
-                "type": "partial",
-                "store": "bio",
-                "value": true,
                 "var": "bio",
-                "text": {
-                  "false": "Parlez-moi de vous",
-                  "true": "Reparlez-moi de vous"
-                },
-                "next": "b0"
-              },
-              {
-                "type": "partial",
-                "store": "false",
-                "text": "Que faîtes-vous aujourd'hui ?",
-                "next": "r3"
-              },
-              {
-                "type": "partial",
-                "store": "game",
-                "value": true,
-                "var": "game",
-                "text": {
-                  "false": "Je m'ennuie !",
-                  "true": "Je m'ennuie encore !"
-                },
-                "next": "g0"
+                "value": false,
+                "text": "Reparlez-moi de vous"
               }
-            ]
+            ],
+            "store": "bio",
+            "value": true,
+            "next": "b0"
+          },
+          {
+            "type": "radio",
+            "store": false,
+            "text": "Parlez-moi de votre parcours",
+            "next": "r37"
+          },
+          {
+            "type": "partial",
+            "text": [{
+                "var": "game",
+                "value": false,
+                "text": "Je m'ennuie !"
+              },
+              {
+                "var": "game",
+                "value": true,
+                "text": "Je m'ennuie encore !"
+              }
+            ],
+            "store": "game",
+            "value": true,
+            "next": "g0"
+          }
+        ]
+      },
+      {
+        "id": "r37",
+        "type": "neutral",
+        "text": "Je vais tenter de résumer..."
+      },
+      {
+        "id": "r38",
+        "type": "neutral",
+        "text": "J'ai obtenu un bac scientifique en 2003"
+      },
+      {
+        "id": "r39",
+        "type": "neutral",
+        "text": "Puis validé une licence en études cinématographiques"
+      },
+      {
+        "id": "r40",
+        "type": "neutral",
+        "text": "en 2007"
+      },
+      {
+        "id": "r41",
+        "type": "neutral",
+        "text": "suivie en 2008 d'un master en écritures pour le cinéma"
+      },
+      {
+        "id": "r42",
+        "type": "neutral",
+        "text": "De 2008 à 2010 j'ai collaboré avec l'association Affabula Readings"
+      },
+      {
+        "id": "r43",
+        "type": "neutral",
+        "text": "en tant que story-editor"
+      },
+      {
+        "id": "r44",
+        "type": "neutral",
+        "text": "De 2010 à 2017"
+      },
+      {
+        "id": "r45",
+        "type": "neutral",
+        "text": "j'ai été employé en tant que conseiller de vente"
+      },
+      {
+        "id": "r46",
+        "type": "neutral",
+        "text": "dans la boutique Le Géant des Beaux-Arts à Paris"
+      },
+      {
+        "id": "r47",
+        "type": "neutral",
+        "text": "Depuis 2015 j'ai développé et je maintien le site web de l'association Nicarali"
+      },
+      {
+        "id": "r48",
+        "type": "link",
+        "text": "nicarali.com",
+        "url": "http://www.nicarali.com"
+      },
+      {
+        "id": "r49",
+        "type": "neutral",
+        "text": "Voilà mon parcours de formation"
+      },
+      {
+        "id": "r50",
+        "type": "neutral",
+        "text": "et mes expériences proféssionnelles"
+      },
+      {
+        "id": "r51",
+        "type": "neutral",
+        "text": "Si vous voulez vous pouvez aussi consulter mon CV"
+      },
+      {
+        "id": "r52",
+        "type": "link",
+        "text": "Curriculum Vitae",
+        "url": "docs/CV_Giuseppe_DE_PONTE.pdf"
+      },
+      {
+        "id": "r53",
+        "type": "neutral",
+        "text": "ou me suivre sur LinkedIn"
+      },
+      {
+        "id": "r54",
+        "type": "link",
+        "text": "@linkedin/giuseppedeponte",
+        "url": "https://www.linkedin.com/in/giuseppedeponte"
+      },
+      {
+        "id": "r55",
+        "type": "question",
+        "text": "Et maintenat, de quoi aimeriez-vous parler ?",
+        "a": [{
+            "type": "partial",
+            "text": [{
+                "var": "bio",
+                "value": true,
+                "text": "Parlez-moi de vous"
+              },
+              {
+                "var": "bio",
+                "value": false,
+                "text": "Reparlez-moi de vous"
+              }
+            ],
+            "store": "bio",
+            "value": true,
+            "next": "b0"
+          },
+          {
+            "type": "radio",
+            "store": "false",
+            "text": "Que faîtes-vous aujourd'hui ?",
+            "next": "r3"
+          },
+          {
+            "type": "partial",
+            "text": [{
+                "var": "game",
+                "value": false,
+                "text": "Je m'ennuie !"
+              },
+              {
+                "var": "game",
+                "value": true,
+                "text": "Je m'ennuie encore !"
+              }
+            ],
+            "store": "game",
+            "value": true,
+            "next": "g0"
           }
         ]
       }
     ],
-    "g": [
-      {
+    "g": [{
         "id": "g0",
         "type": "neutral",
         "text": "Ooh, désolé de l'entendre..."
@@ -813,8 +893,7 @@
         "id": "g1",
         "type": "question",
         "text": "Voulez-vous faire un jeu ?",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Oh, oui !",
@@ -835,8 +914,7 @@
         ]
       }
     ],
-    "o": [
-      {
+    "o": [{
         "id": "o0",
         "type": "neutral",
         "text": "Le temps passe vite..."
@@ -861,8 +939,7 @@
         "id": "o4",
         "type": "question",
         "text": "Merci beacoup de votre amabilité !",
-        "a": [
-          {
+        "a": [{
             "type": "radio",
             "store": false,
             "text": "Merci à vous",
@@ -889,4 +966,4 @@
       }
     ]
   }
-}
+};
