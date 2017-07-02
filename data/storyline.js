@@ -70,17 +70,17 @@ STORYLINE = {
         "id": "i4",
         "type": "partial",
         "text": [{
-            "var": "sex",
+            "prop": "sex",
             "value": "m",
             "text": "Très bien, bienvenu !"
           },
           {
-            "var": "sex",
+            "prop": "sex",
             "value": "f",
             "text": "Très bien, bienvenue !"
           },
           {
-            "var": "sex",
+            "prop": "sex",
             "value": "x",
             "text": "Pas de problèmes !"
           }
@@ -110,12 +110,12 @@ STORYLINE = {
         "id": "i6",
         "type": "partial",
         "text": [{
-            "var": "isHappy",
+            "prop": "isHappy",
             "value": true,
             "text": "Très bien, merci"
           },
           {
-            "var": "isHappy",
+            "prop": "isHappy",
             "value": false,
             "text": "Mauvaise journée ? Désolé de l'entendre"
           }
@@ -128,15 +128,15 @@ STORYLINE = {
         "a": [{
             "type": "radio",
             "store": "name",
-            "value": false,
+            "value": "",
             "text": "Je préfère ne pas le dire",
             "next": "i8"
           },
           {
             "type": "input",
             "store": "name",
-            "value": " ",
-            "text": "Votre nom, prénom, pséudo...",
+            "value": "",
+            "text": "nom, prénom, pséudo...",
             "next": "i8"
           }
         ]
@@ -145,12 +145,12 @@ STORYLINE = {
         "id": "i8",
         "type": "partial",
         "text": [{
-            "var": "name",
+            "prop": "name",
             "value": true,
-            "text": "Enchanté, #nom"
+            "text": "Enchanté, #name"
           },
           {
-            "var": "name",
+            "prop": "name",
             "value": false,
             "text": "Ok. Je comprends."
           }
@@ -178,12 +178,12 @@ STORYLINE = {
         "a": [{
             "type": "partial",
             "text": [{
-                "var": "bio",
+                "prop": "bio",
                 "value": true,
                 "text": "Parlez-moi de vous"
               },
               {
-                "var": "bio",
+                "prop": "bio",
                 "value": false,
                 "text": "Reparlez-moi de vous"
               }
@@ -194,14 +194,14 @@ STORYLINE = {
           },
           {
             "type": "partial",
-            "var": "resume",
+            "prop": "resume",
             "text": [{
-                "var": "resume",
+                "prop": "resume",
                 "value": false,
                 "text": "Dîtes-moi ce que vous faîtes"
               },
               {
-                "var": "resume",
+                "prop": "resume",
                 "value": true,
                 "text": "Redîtes-moi ce que vous faîtes"
               }
@@ -213,12 +213,12 @@ STORYLINE = {
           {
             "type": "partial",
             "text": [{
-                "var": "game",
+                "prop": "game",
                 "value": false,
                 "text": "Je m'ennuie !"
               },
               {
-                "var": "game",
+                "prop": "game",
                 "value": true,
                 "text": "Je m'ennuie encore !"
               }
@@ -254,17 +254,17 @@ STORYLINE = {
             "type": "partial",
             "store": false,
             "text": [{
-                "var": "sex",
+                "prop": "sex",
                 "value": "m",
                 "text": "Enchanté, Giuseppe"
               },
               {
-                "var": "sex",
+                "prop": "sex",
                 "value": "f",
                 "text": "Enchantée, Giuseppe"
               },
               {
-                "var": "sex",
+                "prop": "sex",
                 "value": "x",
                 "text": "Enchanté(e), Giuseppe"
               }
@@ -316,14 +316,14 @@ STORYLINE = {
           },
           {
             "type": "partial",
-            "var": "resume",
+            "prop": "resume",
             "text": [{
-                "var": "resume",
+                "prop": "resume",
                 "value": false,
                 "text": "Dîtes-moi ce que vous faîtes"
               },
               {
-                "var": "resume",
+                "prop": "resume",
                 "value": true,
                 "text": "Redîtes-moi ce que vous faîtes"
               }
@@ -441,14 +441,14 @@ STORYLINE = {
         "text": "Voilà, en gros, mon profil",
         "a": [{
             "type": "partial",
-            "var": "resume",
+            "prop": "resume",
             "text": [{
-                "var": "resume",
+                "prop": "resume",
                 "value": false,
                 "text": "Dîtes-moi ce que vous faîtes"
               },
               {
-                "var": "resume",
+                "prop": "resume",
                 "value": true,
                 "text": "Redîtes-moi ce que vous faîtes"
               }
@@ -460,12 +460,12 @@ STORYLINE = {
           {
             "type": "partial",
             "text": [{
-                "var": "game",
+                "prop": "game",
                 "value": false,
                 "text": "Je m'ennuie !"
               },
               {
-                "var": "game",
+                "prop": "game",
                 "value": true,
                 "text": "Je m'ennuie encore !"
               }
@@ -705,12 +705,12 @@ STORYLINE = {
         "a": [{
             "type": "partial",
             "text": [{
-                "var": "bio",
+                "prop": "bio",
                 "value": true,
                 "text": "Parlez-moi de vous"
               },
               {
-                "var": "bio",
+                "prop": "bio",
                 "value": false,
                 "text": "Reparlez-moi de vous"
               }
@@ -728,12 +728,12 @@ STORYLINE = {
           {
             "type": "partial",
             "text": [{
-                "var": "game",
+                "prop": "game",
                 "value": false,
                 "text": "Je m'ennuie !"
               },
               {
-                "var": "game",
+                "prop": "game",
                 "value": true,
                 "text": "Je m'ennuie encore !"
               }
@@ -844,12 +844,12 @@ STORYLINE = {
         "a": [{
             "type": "partial",
             "text": [{
-                "var": "bio",
+                "prop": "bio",
                 "value": true,
                 "text": "Parlez-moi de vous"
               },
               {
-                "var": "bio",
+                "prop": "bio",
                 "value": false,
                 "text": "Reparlez-moi de vous"
               }
@@ -867,12 +867,12 @@ STORYLINE = {
           {
             "type": "partial",
             "text": [{
-                "var": "game",
+                "prop": "game",
                 "value": false,
                 "text": "Je m'ennuie !"
               },
               {
-                "var": "game",
+                "prop": "game",
                 "value": true,
                 "text": "Je m'ennuie encore !"
               }
@@ -962,7 +962,7 @@ STORYLINE = {
       {
         "id": "o5",
         "type": "neutral",
-        "text": "Au revoir..."
+        "text": "Au revoir #name"
       }
     ]
   }

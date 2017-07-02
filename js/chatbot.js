@@ -11,8 +11,8 @@
 
 var user = {
   name: "",
-  sex: "x",
-  happy: true,
+  sex: "",
+  happy: "",
   bio: false,
   resume: false,
   game: false
@@ -95,12 +95,12 @@ CHATBOT.isOver = function() {
 };
 
 CHATBOT.choose = function(choices) {
-  // choose the right value
-  var i, prop, value;
+  var i, prop, value, check;
+
   for (i = 0; i < choices.length; i += 1) {
-    prop = choices[i]['var'];
-    value = choices[i]['value'];
-    if (this.user[prop] === value) {
+    prop = choices[i]["prop"];
+    value = choices[i]["value"];
+    if (this.user[prop] === value || this.user['has' + prop] === value) {
       return choices[i];
     }
   }
@@ -121,13 +121,13 @@ CHATBOT.think = function(act, text) {
 };
 
 CHATBOT.parseText = function(text) {
-  console.log(text);
   var regex = /\B(\#[a-zA-Z]+\b)(?!;)/g;
   var match = text.match(regex);
   var prop;
   if (match) {
     prop = match[0].substr(1);
     value = CHATBOT.user[prop];
+    console.log(value);
     text = text.replace(match[0], value);
   }
   return text;
@@ -176,7 +176,7 @@ CHATBOT.show = function(speaker, line) {
 };
 
 CHATBOT.reply = function(line){
-  if (line.store) {
+  if (line.store && !this.user['has' + line.store]) {
     this.user[line.store] = line.value;
   }
   line.type = 'answer';
@@ -189,6 +189,7 @@ CHATBOT.ask = function(questions) {
   var q;
   var $li;
   var $btn;
+  var $input;
   var $parent = $('#input');
   var that = this;
   var callback;
@@ -230,9 +231,38 @@ CHATBOT.ask = function(questions) {
         break;
       }
       case "input": {
-        // build a text input
-        // add onsubmit event listener
-        // add to doc
+        $input = $(document.createElement('input'));
+        $btn = $(document.createElement('button'));
+        $label = $(document.createElement('label'));
+        $form = $(document.createElement('form'));
+        $label.attr('for', q.store);
+        $input.attr('type','text')
+            .attr('name', q.store)
+            .attr('value', q.value)
+            .attr('placeholder', q.text)
+            .attr('autocapitalize', 'autocapitalize')
+            .appendTo($label);
+        $btn.attr('type', 'submit')
+            .attr('value', 'ok')
+            .text('ok')
+            .appendTo($label);
+
+        $label.appendTo($form);
+        $form.appendTo($li).on('submit', q, function(e){
+          e.preventDefault();
+          var check = 'has' + q.store;
+          that.user[check] = false;
+          if(e.data.text !== '') {
+            e.data.text = (e.target[q.store].value);
+            e.data.text = e.data.text.trim();
+            e.data.text = e.data.text[0].toUpperCase()
+                        + e.data.text.substr(1).toLowerCase();
+            that.user[q.store] = e.data.text;
+            that.user[check] = (that.user[q.store] !== '');
+          }
+          that.reply(e.data);
+        });
+        $li.appendTo($parent);
         break;
       }
       default: {
