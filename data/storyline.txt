@@ -1,0 +1,201 @@
+/*
+*************************
+****** INTRO ******
+*************************
+
+BOT:
+#bfrm0 bonjour, mon ami(e).
+
+USER:
+bonjour | salut | au revoir
+####### CONTINUER | CONTINUER | SORTIR
+
+
+BOT:
+#bfrm2 ces parenthèses m'ennuient...
+#bfrm3 pourriez-vous me dire si vous êtes un homme ou une femme ?
+
+USER:
+je suis un homme | je suis une femme | ça ne vous concerne pas
+####### MASCULIN | FEMININ | LES DEUX
+
+BOT:
+#bfrm4 très bien. Bienvenu ! comment allez-vous aujourd'hui ?
+
+USER:
+Bien, et vous ? | ça ne va pas trop...
+
+BOT:
+#bfrm5 très bien, merci !
+OR
+#bfrm6 Mauvaise journée ? J'en suis désolé...
+
+
+
+
+BOT:
+#bfrm7 oh, j'avais presque oublié. Comment vous appelez-vous ?
+
+USER:
+@input:nom | je préfère ne pas dire
+BOT:
+#bfrm8 enchanté, @nom
+OR
+#bfrm9 ok, je comprends.
+
+#bfrm4
+BOT:
+de quoi aimeriez-vous parler ?
+de moi, de ce que je fais ou d'autre chose ?
+
+USER:
+parlez-moi de vous | parlons de ce que vous faîtes | je m'ennuie !
+
+####### BIO | CV | aimeriez-vous faire un jeu ?
+
+*****************
+****** BIO ******
+*****************
+
+BOT:
+avec plaisir.
+
+alors, je m'appelle DR27.
+
+mais quand je ne suis pas un chatbot, on m'appelle plutôt Giuseppe De Ponte.
+
+USER:
+vous êtes espagnol ? | enchanté, DR27
+
+BOT:
+je suis un homme, j'ai trente-deux ans et je viens d'Italie.
+
+je vis à Paris depuis bientôt neuf ans.
+
+pendant mes études, j'ai aussi rencontré Louise
+c'est la raison pour laquelle je vis aujourd'hui en France.
+
+USER:
+Et qui êtes-vous ? | Et que faîtes-vous ?
+###### BIO suite | CV
+
+BOT:
+je suis un personne avec beaucoup d'imagination et de curiosité
+je suis plus à l'aise à l'écrit qu'à l'oral
+(mais j'essaie de m'améliorer petit à petit...)
+j'aime dessiner
+je dessine presque tous les jours
+voulez-vous voir quelqu'un de mes dessins ?
+
+USER:
+oui | non
+##### montrer quelques dessin + lien tumblr | CONTINUER
+
+BOT:
+je suis bilingue italien et français
+et je parle couramment anglais
+je fait aussi de la photographie argéntique
+et je joue de la guitare
+
+USER:
+et que faîtes-vous ? | parlons d'autre chose | désolé, je dois vous quitter
+###### CV | JEU | SORTIE
+
+****************
+****** CV ******
+****************
+
+BOT:
+voulez-vous savoir ce que je fais aujourd'hui ?
+ou connaître mon histoire ?
+
+USER:
+que faites-vous en ce moment ? | parlez-moi de votre parcours
+###### CV compétences | CV parcours
+
+*** CV compétences
+
+BOT:
+très bien.
+je valide aujourd'hui une formation professionnelle de développeur web
+spécialisée en JavaScript full stack
+(c'est grâce à JavaScript que je vous parle en ce moment)
+il s'agit d'un cours intensif
+des professionnels en activité accompagnent moi et mes collègues tout le long de ce cursus
+pour que nous puissions maîtriser cette technologie
+sous ses formes les plus utilisées et demandées aujourd'hui
+je cherche actuellement une période d'application pratique en entreprise à intégrer à la fin de ma formation
+
+USER:
+pourquoi avez-vous choisi ce domaine ? | parlez-moi de votre parcours
+###### CV compétences suite | CV parcours
+
+il y a environ six ans j'ai décidé de faire du développement web l'objectif de mon projet professionnel
+j'ai toujours aimé trafiquer avec des ordinateurs
+depuis tout petit
+j'ai appris à leur dire quoi faire
+ils m'écoutent assez bien depuis
+(parfois c'est plus dûr, mais en général ça va...)
+la formation que je suis actuellement me permettra de finaliser ce long parcours d'apprentissage de la programmation pour le web
+et de me spécialiser dans le langage JavaScript
+(qui offre une infinité de possibilités d'application)
+enfin de pouvoir être complètement operationnel
+et apporter ma contribution à ce domaine passionant et centrale dans notre société
+
+USER:
+qu'allez-vous pouvoir faire ? | parlez-moi de votre parcours
+##### CV compétences suite | CV parcours
+
+BOT:
+JS est le langage informatique, avec HTML et CSS, parlé par tous les navigateurs web
+il est central dans le développement front-end
+tout seul ou grâce à ses nombreuses librairies
+tel JQUERY, AngularJS, Bootstrap, Foundation
+mais JS est aussi de plus en plus employé dans le back-end
+grâce à des technologies telles que Node.js, Express, MongoDB, MeteorJS et ajax
+ces technologies sont celles dont j'ai pu faire l'expérience tout au long de mon parcours
+et que ma formation me donnera l'opportunité de maîtriser entièrement
+et maintenant de quoi aimeriez-vous parler ?
+
+USER:
+parlez-moi de votre parcours | parlez-moi de vous | parlons d'autre chose
+##### CV parcours | BIO (si pas fait) | JEU
+
+*** CV parcours
+BOT:
+Très bien.
+J'ai obtenu un bac scientifique en 2003
+J'ai ensuite validé une licence en études cinématographiques en 2007
+suivie d'un master en écritures pour le cinéma en 2008
+de 2008 à 2010 j'ai travaillé en tant que story-editor pour l'association Affabula Readings
+de 2010 à 2017 j'ai été employée en tant que conseiller de vente dans la boutique Le Géant des Beaux-Arts
+depuis 2015 je suis webmaster de l'association Nicarali
+Voilà.
+Si vous le souhaitez vous pouvez voir mon CV.
+@lien CV.pdf
+et maintenant de quoi aimeriez-vous parler ?
+
+
+
+*****************
+****** JEU ******
+*****************
+
+
+
+text speed:
+
+def getWaitTime(self, text):
+    ''' Calculate the amount of time needed to read the notification '''
+    wpm = 180  # readable words per minute
+    word_length = 5  # standardized number of chars in calculable word
+    words = len(text)/word_length
+    words_time = ((words/wpm)*60)*1000
+
+    delay = 1500  # milliseconds before user starts reading the notification
+    bonus = 1000  # extra time
+
+    return delay + words_time + bonus
+
+
+*/
