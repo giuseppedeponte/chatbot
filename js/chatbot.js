@@ -10,9 +10,9 @@
 // The user answers will allow to update the values
 
 var user = {
-  name: "",
-  sex: "",
-  happy: "",
+  name: '',
+  sex: 'x',
+  happy: '',
   bio: false,
   resume: false,
   game: false
@@ -24,33 +24,33 @@ CHATBOT = {
   // default values
   user: user,
   bot: 'dr27',
-  lang: "fr",
+  lang: 'fr',
   start: '',
   end: '',
   currentLine: undefined,
   isStarted: false,
-  isPaused: false
+  isPaused: false,
 };
 
 CHATBOT.setLimits = function() {
   this.start = STORYLINE[this.lang].start;
   this.end = STORYLINE[this.lang].end;
   return this;
-}
+};
 
 // function to change the
-parseID = function(id) {
+var parseID = function(id) {
   var chapter = id[0];
   var line = parseInt(id.substr(1));
   return {
     string: id,
     chapter: chapter,
-    line: line
+    line: line,
   };
 };
 
 // get a line object from STORYLINE by lang and ID
-searchLine = function(lang, id) {
+var searchLine = function(lang, id) {
   var l = parseID(id);
   return STORYLINE[lang][l.chapter][l.line];
 };
@@ -95,7 +95,7 @@ CHATBOT.isOver = function() {
 };
 
 CHATBOT.choose = function(choices) {
-  var i, prop, value, check;
+  var i, prop, value;
 
   for (i = 0; i < choices.length; i += 1) {
     prop = choices[i]["prop"];
@@ -127,7 +127,6 @@ CHATBOT.parseText = function(text) {
   if (match) {
     prop = match[0].substr(1);
     value = CHATBOT.user[prop];
-    console.log(value);
     text = text.replace(match[0], value);
   }
   return text;

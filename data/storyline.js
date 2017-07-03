@@ -1,6 +1,6 @@
 // Constant STORYLINE as JS object
 // Future version will use it as JSON file
-
+/* eslint quotes: "off", comma-dangle: "off" */
 STORYLINE = {
   "fr": {
     "start": "i0",
@@ -127,8 +127,8 @@ STORYLINE = {
         "text": "Puis-je vous demander votre nom ?",
         "a": [{
             "type": "radio",
-            "store": "name",
-            "value": "",
+            "store": "hasname",
+            "value": false,
             "text": "Je préfère ne pas le dire",
             "next": "i8"
           },
@@ -145,12 +145,12 @@ STORYLINE = {
         "id": "i8",
         "type": "partial",
         "text": [{
-            "prop": "name",
+            "prop": "hasname",
             "value": true,
             "text": "Enchanté, #name"
           },
           {
-            "prop": "name",
+            "prop": "hasname",
             "value": false,
             "text": "Ok. Je comprends."
           }
@@ -179,12 +179,12 @@ STORYLINE = {
             "type": "partial",
             "text": [{
                 "prop": "bio",
-                "value": true,
+                "value": false,
                 "text": "Parlez-moi de vous"
               },
               {
                 "prop": "bio",
-                "value": false,
+                "value": true,
                 "text": "Reparlez-moi de vous"
               }
             ],
@@ -238,12 +238,12 @@ STORYLINE = {
       {
         "id": "b1",
         "type": "neutral",
-        "text": "Je m'appelle DR27"
+        "text": "Je m'appelle dr27"
       },
       {
         "id": "b2",
         "type": "question",
-        "text": "(mais en dehors de la chat on m'appelle Giuseppe De Ponte)",
+        "text": "(mais en dehors de ce chat on m'appelle Giuseppe De Ponte)",
         "a": [{
             "type": "radio",
             "store": false,
@@ -518,7 +518,7 @@ STORYLINE = {
       {
         "id": "r5",
         "type": "neutral",
-        "text": "(c'est JS qui me permet de nous parler en ce moment)"
+        "text": "(c'est JS qui nous permet de nous parler en ce moment)"
       },
       {
         "id": "r6",
@@ -912,6 +912,71 @@ STORYLINE = {
             "next": "o0"
           }
         ]
+      },
+      {
+        "id": "g2",
+        "type": "neutral",
+        "text": "Je peux vous proposer..."
+      },
+      {
+        "id": "g3",
+        "type": "neutral",
+        "text": "une partie de pierre|feuille|ciseaux ?"
+      },
+      {
+        "id": "g4",
+        "type": "neutral",
+        "text": "(j'ai crée moi même ce petit jeux en JS)"
+      },
+      {
+        "id": "g5",
+        "type": "question",
+        "text": "Cela vous intéresse ?",
+        "a": [{
+            "type": "radio",
+            "store": false,
+            "text": "Bien sûr",
+            "next": "g6"
+          },
+          {
+            "type": "radio",
+            "store": false,
+            "text": "Mmh... Essayons",
+            "next": "g6"
+          },
+          {
+            "type": "radio",
+            "store": false,
+            "text": "Je dois partir",
+            "next": "o0"
+          }
+        ]
+      },
+      {
+        "id": "g6",
+        "type": "neutral",
+        "text": "Ok, c'est parti"
+      },
+      {
+        "id": "g7",
+        "type": "neutral",
+        "text": "Suivez le lien suivant pour jouer"
+      },
+      {
+        "id": "g8",
+        "type": "link",
+        "text": "Pierre | Feuille | Ciseaux",
+        "url": "https://giuseppedeponte.github.io/rock-paper-scissor"
+      },
+      {
+        "id": "g9",
+        "type": "neutral",
+        "text": "(Le lien s'ouvrira dans un nouvel onglet...)"
+      },
+      {
+        "id": "g10",
+        "type": "neutral",
+        "text": "(...je vous attends ici...)"
       }
     ],
     "o": [{

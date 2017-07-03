@@ -1,0 +1,38 @@
+{
+  "name": "chatbot",
+  "version": "0.0.1",
+  "description": "Chatbot for interviewing me",
+  "main": "js/script.js\u001b[Dchatbot.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giuseppedeponte/chatbot.git"
+  },
+  "author": "Giuseppe De Ponte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giuseppedeponte/chatbot/issues"
+  },
+  "homepage": "https://github.com/giuseppedeponte/chatbot#readme",
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-config-google": "^0.8.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
+    "env": {
+      "browser": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 5
+    }
+  }
+}
