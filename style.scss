@@ -21,7 +21,7 @@ $scale: 3/2;
 $leading: $body-font-size * $line-height;
 
 // colors
-$user-bgcolor: crimson;
+$user-bgcolor: #f44336;
 $user-color: #fafafa;
 $bot-bgcolor: #f0f0f0;
 $bot-color: #414141;
@@ -54,6 +54,7 @@ section#chatbot {
   article#conversation {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
     padding: .5*$leading 0;
 
     p,
@@ -65,6 +66,7 @@ section#chatbot {
       margin-top: .5*$leading;
       border-radius: 0.30rem;
       transition: visibility .5s ease-out;
+      animation: 1s ease-in-out fade-in;
       a,
       a:visited {
         color: #03a9f4;
@@ -124,6 +126,7 @@ section#chatbot {
       border-radius: 0.60rem;
       width: 2*$leading;
       height: $leading;
+      animation: 1s ease-in-out fade-in;
     }
     figcaption span {
       background-color: currentcolor;
@@ -154,6 +157,13 @@ section#chatbot {
     figcaption.hide {
       display: none;
     }
+    img {
+      transform: rotate(0deg);
+      transition: transform .5s;
+    }
+    img.asking {
+      transform: rotate(10deg);
+    }
   }
 
   .avatar#user {
@@ -180,6 +190,7 @@ section#chatbot {
     margin: 0 $leading;
     justify-content: space-around;
     flex-flow: row wrap;
+    animation: 1s ease-in-out fade-in;
     li {
       line-height: $leading;
       padding-bottom: .5*$leading;
@@ -218,6 +229,26 @@ section#chatbot {
   }
   ul#input.hide {
     display: none;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button#play {
+      line-height: $leading;
+      padding: 0 .5*$leading;
+      margin: $leading*0.5 0;
+      background-color: $user-bgcolor;
+      border-radius: 0.30rem;
+      color: $user-color;
+    }
+
+    button#play:hover {
+      opacity: .5;
+    }
   }
 }
 

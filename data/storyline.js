@@ -921,7 +921,7 @@ STORYLINE = {
       {
         "id": "g3",
         "type": "neutral",
-        "text": "une partie de pierre|feuille|ciseaux ?"
+        "text": "une partie de 'pierre feuille ciseaux' ?"
       },
       {
         "id": "g4",

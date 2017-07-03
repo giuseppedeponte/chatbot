@@ -20,6 +20,7 @@ section#chatbot {
   section#chatbot article#conversation {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
     padding: 15px 0; }
     section#chatbot article#conversation p,
     section#chatbot article#conversation figure {
@@ -29,7 +30,8 @@ section#chatbot {
       margin: 0 15px;
       margin-top: 15px;
       border-radius: 0.30rem;
-      transition: visibility .5s ease-out; }
+      transition: visibility .5s ease-out;
+      animation: 1s ease-in-out fade-in; }
       section#chatbot article#conversation p a,
       section#chatbot article#conversation p a:visited,
       section#chatbot article#conversation figure a,
@@ -82,7 +84,8 @@ section#chatbot {
       padding: 0 15px;
       border-radius: 0.60rem;
       width: 60px;
-      height: 30px; }
+      height: 30px;
+      animation: 1s ease-in-out fade-in; }
     section#chatbot .avatar figcaption span {
       background-color: currentcolor;
       width: 5px;
@@ -102,13 +105,19 @@ section#chatbot {
       color: #414141; }
     section#chatbot .avatar#dr27 figcaption.hide {
       display: none; }
+    section#chatbot .avatar#dr27 img {
+      transform: rotate(0deg);
+      transition: transform .5s; }
+    section#chatbot .avatar#dr27 img.asking {
+      transform: rotate(10deg); }
   section#chatbot .avatar#user {
     justify-content: flex-end; }
     section#chatbot .avatar#user img {
       display: block;
       background-color: crimson;
       color: #fafafa;
-      border: none; }
+      border: none;
+      padding-top: 5px; }
     section#chatbot .avatar#user figcaption {
       display: inline-flex;
       background-color: crimson;
@@ -119,7 +128,8 @@ section#chatbot {
     display: flex;
     margin: 0 30px;
     justify-content: space-around;
-    flex-flow: row wrap; }
+    flex-flow: row wrap;
+    animation: 1s ease-in-out fade-in; }
     section#chatbot ul#input li {
       line-height: 30px;
       padding-bottom: 15px;
@@ -150,6 +160,20 @@ section#chatbot {
           border-radius: 0 0.30rem 0.30rem 0; }
   section#chatbot ul#input.hide {
     display: none; }
+  section#chatbot nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    section#chatbot nav button#play {
+      line-height: 30px;
+      padding: 0 15px;
+      margin: 15px 0;
+      background-color: crimson;
+      border-radius: 0.30rem;
+      color: #fafafa; }
+    section#chatbot nav button#play:hover {
+      opacity: .5; }
 
 @keyframes think3 {
   0%, 100%, 50% {

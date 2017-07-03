@@ -8,6 +8,12 @@
 
 // Create a global user object for storing informations
 // The user answers will allow to update the values
+$(document).ready(function() {
+  $('#play').on('click', function(e){
+    CHATBOT.breakTheIce('i0');
+    $('#chatbot nav').detach();
+  });
+});
 
 var user = {
   name: '',
@@ -180,6 +186,7 @@ CHATBOT.reply = function(line){
   }
   line.type = 'answer';
   $('#user figcaption, #input').addClass('hide');
+  $('.avatar#dr27 img').removeClass('asking');
   this.parseLine(line);
 };
 
@@ -194,6 +201,7 @@ CHATBOT.ask = function(questions) {
   var callback;
   // reset the button list
   $parent.empty();
+  $('.avatar#dr27 img').addClass('asking');
   for (i = 0; i < questions.length; i += 1) {
     // build the buttons / inputs and display them
     $li = $(document.createElement('li'));
@@ -276,6 +284,9 @@ CHATBOT.ask = function(questions) {
 };
 
 CHATBOT.parseLine = function(line) {
+  if (this.isPaused || this.isOver()) {
+    return;
+  }
   var that = this;
   switch (line.type) {
     // CASES FOR BOT LINES DISPLAY
