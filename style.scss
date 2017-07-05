@@ -1,42 +1,30 @@
 // SETTINGS
 // mixins
-@mixin vertical-margin($number){
-  margin: #{$number * $leading} 0;
-}
-@mixin font-size($number){
-  font-size: #{$number * $scale * $body-font-size}
-}
-@mixin leading($number){
-  line-height: #{$number * $leading}
-}
-@mixin width($number){
-  width: #{$leading * $number};
-}
 // font families
-$body-font-family : 'Merryweather', Georgia, sans-serif;
+$body-font-family : 'Roboto', 'Trebuchet MS', sans-serif;
 // font sizes
-$body-font-size: 20px;
+$body-font-size: 1.2rem;
 $line-height: 1.5;
 $scale: 3/2;
 $leading: $body-font-size * $line-height;
 
 // colors
-$user-bgcolor: #f44336;
+$user-bgcolor: #ff5722;
 $user-color: #fafafa;
 $bot-bgcolor: #f0f0f0;
 $bot-color: #414141;
 
 // ELEMENTS
 html {
-  font-size: 120%;
-  line-height: $line-height;
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  line-height: $leading;
   color: #222;
   text-rendering: optimizeLegibility;
 }
 body {
-  font-size: $body-font-size;
-  line-height: $line-height;
   background-color: #fdfdfd;
+  line-height: inherit;
 }
 
 main {
@@ -44,22 +32,24 @@ main {
 
 section#chatbot {
   position: fixed;
-  left: 0;
+  right: 0;
   bottom: 0;
   padding: 0 $leading;
   width: 100%;
   max-width: 20*$leading;
   margin: .5*$leading auto;
+  height: 100%;
+  overflow-y: scroll;
 
   article#conversation {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: .5*$leading 0;
 
     p,
     figure {
-      line-height: $leading;
+      line-height: inherit;
       display: inline-block;
       max-width: 19*$leading;
       margin: 0 .5*$leading;
@@ -99,7 +89,9 @@ section#chatbot {
     }
     .user {
       align-self: flex-end;
-      color: $user-bgcolor;
+      color: $user-color;
+      background-color: $user-bgcolor;
+      padding: 0 $leading*.5;
       figcaption {
         text-align: left;
       }
@@ -192,21 +184,19 @@ section#chatbot {
     flex-flow: row wrap;
     animation: 1s ease-in-out fade-in;
     li {
-      line-height: $leading;
       padding-top: .5*$leading;
       width: 100%;
       text-align: center;
       button,
       form {
         font-family: $body-font-family;
-        font-size: $body-font-size;
-        line-height: $leading;
       }
       button {
         padding: 0 .5*$leading;
         background-color: $user-bgcolor;
         border-radius: 0.30rem;
         color: $user-color;
+        line-height: inherit;
       }
       button:hover {
         opacity: .5;
@@ -220,9 +210,11 @@ section#chatbot {
           border: none;
           outline: none;
           border-bottom: 1px solid $user-bgcolor;
+          line-height: inherit;
         }
         button {
           border-radius: 0 0.30rem 0.30rem 0;
+          line-height: inherit;
         }
       }
     }
@@ -238,7 +230,7 @@ section#chatbot {
     align-items: center;
 
     button#play {
-      line-height: $leading;
+      line-height: inherit;
       padding: 0 .5*$leading;
       margin: $leading*0.5 0;
       background-color: $user-bgcolor;
@@ -250,6 +242,44 @@ section#chatbot {
       opacity: .5;
     }
   }
+}
+
+#game {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+  position: absolute;
+  z-index: 100;
+  animation: 1s slide-in;
+  .close {
+    position: absolute;
+    top: .5*$leading;
+    right: .5*$leading;
+    background: $user-bgcolor;
+    color: $user-color;
+    width: $leading;
+    height: $leading;
+    line-height: $leading;
+    vertical-align: middle;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    font-size: $body-font-size;
+  }
+  .close:hover,
+  .close:active {
+    opacity: .5;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    #document html {
+      overflow: hidden;
+    }
+  }
+}
+#game.hide {
+  display: none;
 }
 
 // ANIMATIONS
@@ -287,6 +317,15 @@ section#chatbot {
   }
 }
 
+@keyframes slide-in {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+
 .grid {
   display: block;
   display: none;
@@ -300,6 +339,6 @@ section#chatbot {
           user-select: none;
   top: 0px;
   height: 100%;
-  background: linear-gradient(rgba(0, 119, 179, 0.2) 1px, transparent 1px) left bottom / 30px 30px;
+  background: linear-gradient(rgba(0, 119, 179, 0.2) 1px, transparent 1px) left bottom / $leading $leading;
 }
 /*# sourceMappingURL=style.scss.map */

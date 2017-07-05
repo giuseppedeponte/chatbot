@@ -1,34 +1,36 @@
 html {
-  font-size: 120%;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  font-family: "Roboto", "Trebuchet MS", sans-serif;
+  line-height: 1.8rem;
   color: #222;
   text-rendering: optimizeLegibility; }
 
 body {
-  font-size: 20px;
-  line-height: 1.5;
-  background-color: #fdfdfd; }
+  background-color: #fdfdfd;
+  line-height: inherit; }
 
 section#chatbot {
   position: fixed;
-  left: 0;
+  right: 0;
   bottom: 0;
-  padding: 0 30px;
+  padding: 0 1.8rem;
   width: 100%;
-  max-width: 600px;
-  margin: 15px auto; }
+  max-width: 36rem;
+  margin: 0.9rem auto;
+  height: 100%;
+  overflow-y: scroll; }
   section#chatbot article#conversation {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
-    padding: 15px 0; }
+    justify-content: flex-end;
+    padding: 0.9rem 0; }
     section#chatbot article#conversation p,
     section#chatbot article#conversation figure {
-      line-height: 30px;
+      line-height: inherit;
       display: inline-block;
-      max-width: 570px;
-      margin: 0 15px;
-      margin-top: 15px;
+      max-width: 34.2rem;
+      margin: 0 0.9rem;
+      margin-top: 0.9rem;
       border-radius: 0.30rem;
       transition: visibility .5s ease-out;
       animation: 1s ease-in-out fade-in; }
@@ -50,7 +52,7 @@ section#chatbot {
       section#chatbot article#conversation p img,
       section#chatbot article#conversation figure img {
         display: block;
-        max-width: 150px;
+        max-width: 9rem;
         border-radius: 0.30rem; }
       section#chatbot article#conversation p figcaption,
       section#chatbot article#conversation figure figcaption {
@@ -59,12 +61,14 @@ section#chatbot {
         opacity: .5;
         padding: 0 .5rem; }
     section#chatbot article#conversation figure {
-      margin-top: 30px; }
+      margin-top: 1.8rem; }
     section#chatbot article#conversation .dr27 {
       align-self: flex-start; }
     section#chatbot article#conversation .user {
       align-self: flex-end;
-      color: #f44336; }
+      color: #fafafa;
+      background-color: #ff5722;
+      padding: 0 0.9rem; }
       section#chatbot article#conversation .user figcaption {
         text-align: left; }
   section#chatbot .avatar {
@@ -76,15 +80,15 @@ section#chatbot {
       justify-content: space-between;
       align-items: center; }
     section#chatbot .avatar img {
-      width: 60px;
-      height: 60px;
+      width: 3.6rem;
+      height: 3.6rem;
       border-radius: 100%;
-      margin: 0 7.5px; }
+      margin: 0 0.45rem; }
     section#chatbot .avatar figcaption {
-      padding: 0 15px;
+      padding: 0 0.9rem;
       border-radius: 0.60rem;
-      width: 60px;
-      height: 30px;
+      width: 3.6rem;
+      height: 1.8rem;
       animation: 1s ease-in-out fade-in; }
     section#chatbot .avatar figcaption span {
       background-color: currentcolor;
@@ -114,37 +118,35 @@ section#chatbot {
     justify-content: flex-end; }
     section#chatbot .avatar#user img {
       display: block;
-      background-color: #f44336;
+      background-color: #ff5722;
       color: #fafafa;
       border: none;
       padding-top: 5px; }
     section#chatbot .avatar#user figcaption {
       display: inline-flex;
-      background-color: #f44336;
+      background-color: #ff5722;
       color: #fafafa; }
     section#chatbot .avatar#user figcaption.hide {
       display: none; }
   section#chatbot ul#input {
     display: flex;
-    margin: 0 30px;
+    margin: 0 1.8rem;
     justify-content: space-around;
     flex-flow: row wrap;
     animation: 1s ease-in-out fade-in; }
     section#chatbot ul#input li {
-      line-height: 30px;
-      padding-top: 15px;
+      padding-top: 0.9rem;
       width: 100%;
       text-align: center; }
       section#chatbot ul#input li button,
       section#chatbot ul#input li form {
-        font-family: "Merryweather", Georgia, sans-serif;
-        font-size: 20px;
-        line-height: 30px; }
+        font-family: "Roboto", "Trebuchet MS", sans-serif; }
       section#chatbot ul#input li button {
-        padding: 0 15px;
-        background-color: #f44336;
+        padding: 0 0.9rem;
+        background-color: #ff5722;
         border-radius: 0.30rem;
-        color: #fafafa; }
+        color: #fafafa;
+        line-height: inherit; }
       section#chatbot ul#input li button:hover {
         opacity: .5; }
       section#chatbot ul#input li form label {
@@ -152,12 +154,14 @@ section#chatbot {
         justify-content: center; }
         section#chatbot ul#input li form label input[type="text"] {
           width: 100%;
-          font-family: "Merryweather", Georgia, sans-serif;
+          font-family: "Roboto", "Trebuchet MS", sans-serif;
           border: none;
           outline: none;
-          border-bottom: 1px solid #f44336; }
+          border-bottom: 1px solid #ff5722;
+          line-height: inherit; }
         section#chatbot ul#input li form label button {
-          border-radius: 0 0.30rem 0.30rem 0; }
+          border-radius: 0 0.30rem 0.30rem 0;
+          line-height: inherit; }
   section#chatbot ul#input.hide {
     display: none; }
   section#chatbot nav {
@@ -166,14 +170,47 @@ section#chatbot {
     justify-content: center;
     align-items: center; }
     section#chatbot nav button#play {
-      line-height: 30px;
-      padding: 0 15px;
-      margin: 15px 0;
-      background-color: #f44336;
+      line-height: inherit;
+      padding: 0 0.9rem;
+      margin: 0.9rem 0;
+      background-color: #ff5722;
       border-radius: 0.30rem;
       color: #fafafa; }
     section#chatbot nav button#play:hover {
       opacity: .5; }
+
+#game {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 100;
+  animation: 1s slide-in; }
+  #game .close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    background: #ff5722;
+    color: #fafafa;
+    width: 1.8rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    vertical-align: middle;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2rem; }
+  #game .close:hover,
+  #game .close:active {
+    opacity: .5; }
+  #game iframe {
+    width: 100%;
+    height: 100%; }
+    #game iframe #document html {
+      overflow: hidden; }
+
+#game.hide {
+  display: none; }
 
 @keyframes think3 {
   0%, 100%, 50% {
@@ -195,6 +232,11 @@ section#chatbot {
     opacity: 0; }
   to {
     opacity: 1; } }
+@keyframes slide-in {
+  from {
+    top: 100%; }
+  to {
+    top: 0; } }
 .grid {
   display: block;
   display: none;
@@ -208,7 +250,7 @@ section#chatbot {
   user-select: none;
   top: 0px;
   height: 100%;
-  background: linear-gradient(rgba(0, 119, 179, 0.2) 1px, transparent 1px) left bottom/30px 30px; }
+  background: linear-gradient(rgba(0, 119, 179, 0.2) 1px, transparent 1px) left bottom/1.8rem 1.8rem; }
 
 /*# sourceMappingURL=style.scss.map */
 

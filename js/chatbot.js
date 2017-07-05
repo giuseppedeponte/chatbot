@@ -19,6 +19,7 @@ var user = {
   name: '',
   sex: 'x',
   happy: '',
+  mood: 'formal',
   bio: false,
   resume: false,
   game: false

@@ -8,22 +8,25 @@ STORYLINE = {
     "i": [{
         "id": "i0",
         "type": "question",
-        "text": "Bonjour, mon ami(e) !",
+        "text": "",
         "a": [{
             "type": "radio",
-            "store": false,
+            "store": "mood",
+            "value": "formal",
             "text": "Bonjour",
             "next": "i1"
           },
           {
             "type": "radio",
-            "store": false,
+            "store": "mood",
+            "value": "informal",
             "text": "Hey !",
             "next": "i1"
           },
           {
             "type": "radio",
-            "store": false,
+            "store": "mood",
+            "value": "bad",
             "text": "Au revoir",
             "next": "o0"
           }
@@ -31,8 +34,18 @@ STORYLINE = {
       },
       {
         "id": "i1",
-        "type": "neutral",
-        "text": "...ces parenthèses m'ennuient..."
+        "type": "partial",
+        "text": [{
+            "prop": "mood",
+            "value": "formal",
+            "text": "Bonjour, et bienvenu(e) !"
+          },
+          {
+            "prop": "mood",
+            "value": "informal",
+            "text": "Ho !"
+          }
+        ]
       },
       {
         "id": "i2",
@@ -164,17 +177,17 @@ STORYLINE = {
       {
         "id": "i10",
         "type": "neutral",
-        "text": "De moi ?"
+        "text": "De moi..."
       },
       {
         "id": "i11",
         "type": "neutral",
-        "text": "de ce que je fais ?"
+        "text": "...de ce que je fais..."
       },
       {
         "id": "i12",
         "type": "question",
-        "text": "ou d'autre chose ?",
+        "text": "...ou d'autre chose ?",
         "a": [{
             "type": "partial",
             "text": [{
@@ -198,12 +211,12 @@ STORYLINE = {
             "text": [{
                 "prop": "resume",
                 "value": false,
-                "text": "Dîtes-moi ce que vous faîtes"
+                "text": "Dites-moi ce que vous faites"
               },
               {
                 "prop": "resume",
                 "value": true,
-                "text": "Redîtes-moi ce que vous faîtes"
+                "text": "Redites-moi ce que vous faites"
               }
             ],
             "store": "resume",
@@ -320,12 +333,12 @@ STORYLINE = {
             "text": [{
                 "prop": "resume",
                 "value": false,
-                "text": "Dîtes-moi ce que vous faîtes"
+                "text": "Dites-moi ce que vous faites"
               },
               {
                 "prop": "resume",
                 "value": true,
-                "text": "Redîtes-moi ce que vous faîtes"
+                "text": "Redites-moi ce que vous faites"
               }
             ],
             "store": "resume",
@@ -381,25 +394,25 @@ STORYLINE = {
       {
         "id": "b14",
         "type": "figure",
-        "text": "",
+        "text": "Immeuble-Ananas ou Ananas-Immeuble",
         "src": "img/dessin1.jpg"
       },
       {
         "id": "b15",
         "type": "figure",
-        "text": "",
-        "src": "img/dessin1.jpg"
+        "text": "Expérience de 3d",
+        "src": "img/dessin2.jpg"
       },
       {
         "id": "b16",
         "type": "figure",
-        "text": "",
-        "src": "img/dessin1.jpg"
+        "text": "Ville imaginaire",
+        "src": "img/dessin3.jpg"
       },
       {
         "id": "b17",
         "type": "neutral",
-        "text": "Vous pourrez voir quelques dessins sur ma page tumblr"
+        "text": "Vous pourrez regarder mes dessins sur ma page tumblr"
       },
       {
         "id": "b18",
@@ -427,7 +440,7 @@ STORYLINE = {
       {
         "id": "b22",
         "type": "neutral",
-        "text": "Je fait de la photo argentique"
+        "text": "Je fais de la photo argentique"
       },
       {
         "id": "b23",
@@ -445,12 +458,12 @@ STORYLINE = {
             "text": [{
                 "prop": "resume",
                 "value": false,
-                "text": "Dîtes-moi ce que vous faîtes"
+                "text": "Dites-moi ce que vous faites"
               },
               {
                 "prop": "resume",
                 "value": true,
-                "text": "Redîtes-moi ce que vous faîtes"
+                "text": "Redites-moi ce que vous faites"
               }
             ],
             "store": "resume",
@@ -495,7 +508,7 @@ STORYLINE = {
           {
             "type": "radio",
             "store": "false",
-            "text": "Que faîtes vous aujourd'hui ?",
+            "text": "Que faites vous aujourd'hui ?",
             "next": "r2"
           }
         ]
@@ -861,7 +874,7 @@ STORYLINE = {
           {
             "type": "radio",
             "store": "false",
-            "text": "Que faîtes-vous aujourd'hui ?",
+            "text": "Que faites-vous aujourd'hui ?",
             "next": "r3"
           },
           {
@@ -959,8 +972,8 @@ STORYLINE = {
       },
       {
         "id": "g7",
-        "type": "neutral",
-        "text": "Suivez le lien suivant pour jouer"
+        "type": "game",
+        "text": ""
       },
       {
         "id": "g8",
@@ -971,12 +984,7 @@ STORYLINE = {
       {
         "id": "g9",
         "type": "neutral",
-        "text": "(Le lien s'ouvrira dans un nouvel onglet...)"
-      },
-      {
-        "id": "g10",
-        "type": "neutral",
-        "text": "(...je vous attends ici...)"
+        "text": "J'espère que vous avez aimé."
       }
     ],
     "o": [{

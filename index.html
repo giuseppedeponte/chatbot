@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="author" content="Giuseppe De Ponte">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="data/storyline.js" charset="utf-8"></script>
-    <script src="js/chatbot.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
     <title>DR27 job interview</title>
   </head>
   <body>
@@ -51,12 +51,22 @@
           </li>
         </ul>
         <nav>
-          <button id="play">
+          <button id="play" onclick="CHATBOT.breakTheIce(this);">
             Démarrer l'interview
           </button>
         </nav>
         <div class="grid"></div>
       </section>
     </main>
+    <aside id="game" class="hide">
+      <div class="close" onclick="CHATBOT.closeGame();">&#10006;</div>
+      <iframe src="https://giuseppedeponte.github.io/rock-paper-scissor">
+        <p>
+          <a href="https://giuseppedeponte.github.io/rock-paper-scissor" title="rock-paper-scissor">
+            Jouer à Pierre | Feuille | Ciseaux
+          </a>
+        </p>
+      </iframe>
+    </aside>
   </body>
 </html>
